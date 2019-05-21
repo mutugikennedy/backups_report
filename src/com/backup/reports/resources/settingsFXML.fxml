@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="308.0" prefWidth="482.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="308.0" prefWidth="482.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.backup.reports.resources.settingController">
    <children>
       <Pane layoutX="2.0" layoutY="172.0" prefHeight="133.0" prefWidth="476.0" style="-fx-border-color: #ffaa40;">
          <children>
@@ -41,6 +41,8 @@
             <Button fx:id="dbConfigSaveId" layoutX="112.0" layoutY="137.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Save" />
             <Separator layoutX="274.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="165.0" prefWidth="11.0" />
             <Button fx:id="dbTxtClearId" layoutX="198.0" layoutY="137.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Clear" />
+            <AnchorPane fx:id="dbStatus" layoutX="282.0" layoutY="6.0" prefHeight="154.0" prefWidth="191.0" />
+            
          </children>
       </AnchorPane>
    </children>

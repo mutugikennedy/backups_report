@@ -28,18 +28,18 @@ public class mainController implements Initializable {
 
     public void Dbsettings(ActionEvent event){
 
-        openDbsettings();
+        openDbSettings();
     }
 
     /**
      * opening the setting box
      */
 
-    public  void openDbsettings(){
+    public  void openDbSettings(){
         try {
             Stage dbSetting = new Stage();
             FXMLLoader dbSettingLoader =  new FXMLLoader();
-            Pane dbSettingsRoot = dbSettingLoader.load(getClass().getResource("./settingsFXML.fxml").openStream());
+            Pane dbSettingsRoot = dbSettingLoader.load(getClass().getResource("settingsFXML.fxml").openStream());
 
             Scene scene =  new Scene(dbSettingsRoot);
             dbSetting.setScene(scene);
