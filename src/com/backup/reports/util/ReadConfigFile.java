@@ -6,8 +6,14 @@ import java.util.Map;
 import java.util.Properties;
 
 public class ReadConfigFile {
-    private static  File  file = new File("com/backup/config/dbconfig.properties");
+    private File  backUpPathfile,dbConfigFile;
     private Properties properties = new Properties();
+
+    public ReadConfigFile() {
+
+        this.dbConfigFile = new File("src/com/backup/reports/config/dbconfig.properties");
+        this.backUpPathfile = new File("src/com/backup/reports/config/backUpPath.properties");
+    }
 
     /**
      *
@@ -24,7 +30,7 @@ public class ReadConfigFile {
             properties.setProperty("DATABASE_NAME",  dbName);
             properties.setProperty("DATABASE_PASSWORD",password);
 
-            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            FileOutputStream fileOutputStream = new FileOutputStream(dbConfigFile);
 
             properties.store(fileOutputStream,"properties");
 
@@ -46,7 +52,7 @@ public class ReadConfigFile {
      */
     public Map<String, String> readDbConfigFile(){
         try {
-            FileInputStream fileInputStream =  new FileInputStream(file);
+            FileInputStream fileInputStream =  new FileInputStream(dbConfigFile);
             properties.load(fileInputStream);
             Map<String, String> dbMap =  new HashMap<>();
 
@@ -71,7 +77,7 @@ public class ReadConfigFile {
     public boolean updateBackUpPath(String str){
         try {
             properties.setProperty("BACK_UP_PATH",str );
-            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            FileOutputStream fileOutputStream = new FileOutputStream(backUpPathfile);
             properties.store(fileOutputStream,"properties");
             fileOutputStream.close();
 
@@ -89,7 +95,7 @@ public class ReadConfigFile {
      */
     public String readBackUpPath(){
         try {
-            FileInputStream fileInputStream = new FileInputStream(file);
+            FileInputStream fileInputStream = new FileInputStream(backUpPathfile);
             properties.load(fileInputStream);
             return  properties.getProperty("BACK_UP_PATH");
         } catch (IOException e) {
@@ -97,6 +103,4 @@ public class ReadConfigFile {
             return  null;
         }
     }
-
-
 }

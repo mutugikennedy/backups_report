@@ -38,7 +38,7 @@
             <PasswordField fx:id="passwordTxtId" layoutX="112.0" layoutY="99.0" prefHeight="17.0" prefWidth="156.0" />
             <TextField fx:id="hostNameTxtId" layoutX="112.0" layoutY="22.0" prefHeight="25.0" prefWidth="156.0" />
             <TextField fx:id="dbNameTxtId" layoutX="112.0" layoutY="61.0" prefHeight="25.0" prefWidth="156.0" />
-            <Button fx:id="dbConfigSaveId" layoutX="112.0" layoutY="137.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Save" />
+            <Button fx:id="dbConfigSaveId" layoutX="112.0" layoutY="137.0" mnemonicParsing="false" onAction="#dbConfigSaveId" prefHeight="25.0" prefWidth="80.0" text="Save" />
             <Separator layoutX="274.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="165.0" prefWidth="11.0" />
             <Button fx:id="dbTxtClearId" layoutX="198.0" layoutY="137.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Clear" />
             <AnchorPane fx:id="dbStatus" layoutX="282.0" layoutY="6.0" prefHeight="154.0" prefWidth="191.0" />

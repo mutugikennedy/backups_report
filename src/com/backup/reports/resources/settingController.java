@@ -1,6 +1,8 @@
 package com.backup.reports.resources;
 
 import com.backup.reports.database.dbConnection;
+import com.backup.reports.util.ReadConfigFile;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -47,6 +49,38 @@ public class settingController implements Initializable {
 
     }
 
+    @FXML
+    public  void dbConfigSaveId(ActionEvent event){
+        dbConfigs();
+    }
+
+
+
+    private  void dbConfigs(){
+
+       String host = hostNameTxtId.getText();
+       String dbName =dbNameTxtId.getText();
+       String password = passwordTxtId.getText();
+
+       boolean response = new ReadConfigFile().updateDbConfigFile(host,dbName,password);
+       if (response){
+           Text txt =  new Text(10,10,"Database configuration set");
+           txt.setStroke(Color.RED);
+           txt.setFont(Font.font(10));
+           dbStatus.getChildren().clear();
+           dbStatus.getChildren().add(txt);
+           showDbStatus();
+       }else{
+           Text txt =  new Text(10,10,"Database configuration not set");
+           txt.setStroke(Color.RED);
+           txt.setFont(Font.font(10));
+           dbStatus.getChildren().clear();
+           dbStatus.getChildren().add(txt);
+       }
+
+
+    }
+
 
     public void showDbStatus(){
 
@@ -54,9 +88,15 @@ public class settingController implements Initializable {
             Text txt =  new Text(10,10,"DataBase connected");
             txt.setStroke(Color.RED);
             txt.setFont(Font.font(12));
+            dbStatus.getChildren().clear();
             dbStatus.getChildren().add(txt);
             //System.out.println("database connected");
 
+        }else{
+            Text txt =  new Text(10,10,"DataBase Not connected");
+            txt.setStroke(Color.RED);
+            txt.setFont(Font.font(12));
+            dbStatus.getChildren().add(txt);
         }
 
     }
