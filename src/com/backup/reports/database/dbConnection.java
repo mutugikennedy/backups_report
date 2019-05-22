@@ -19,17 +19,19 @@ public class dbConnection {
 
 
     public dbConnection() {
-        this.connection = dbConnection.getConnection();
         this.dbConfigInfo = new ReadConfigFile().readDbConfigFile();
         this.url = "jdbc:mysql://" +dbConfigInfo.get("host") +"/" + dbConfigInfo.get("dbname");
         this.password = dbConfigInfo.get("password");
 
+        this.connection =  getConnection();
+        //System.out.println(this.url +""+ password);
+
     }
 
-    public static Connection getConnection(){
+    private  Connection getConnection(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/backup_records","root", "");
+            return DriverManager.getConnection(this.url, this.user, this.password);
 
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
